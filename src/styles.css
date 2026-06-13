@@ -1,0 +1,212 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  /* Blue Butterflies palette — derived from brand logo */
+  --butterfly-cursor: url("./assets/butterfly.png"), pointer;
+  --background: oklch(0.955 0.018 230);          /* powder blue */
+  --foreground: oklch(0.32 0.05 245);            /* deep navy ink */
+  --card: oklch(0.975 0.012 225);
+  --card-foreground: oklch(0.32 0.05 245);
+  --popover: oklch(0.975 0.012 225);
+  --popover-foreground: oklch(0.32 0.05 245);
+  --primary: oklch(0.55 0.09 215);               /* teal-blue */
+  --primary-foreground: oklch(0.98 0.01 225);
+  --secondary: oklch(0.92 0.025 220);
+  --secondary-foreground: oklch(0.32 0.05 245);
+  --muted: oklch(0.93 0.02 225);
+  --muted-foreground: oklch(0.48 0.05 240);
+  --accent: oklch(0.72 0.09 200);                /* aqua highlight */
+  --accent-foreground: oklch(0.22 0.05 245);
+  --destructive: oklch(0.55 0.2 25);
+  --destructive-foreground: oklch(0.98 0.01 225);
+  --border: oklch(0.86 0.025 225);
+  --input: oklch(0.88 0.025 225);
+  --ring: oklch(0.6 0.08 210);
+  --deep: oklch(0.32 0.06 245);                  /* deep navy */
+  --teal: oklch(0.65 0.1 200);
+  --aqua: oklch(0.78 0.07 200);
+  --powder: oklch(0.955 0.018 230);
+  --gradient-butterfly: linear-gradient(180deg, oklch(0.78 0.08 200), oklch(0.42 0.08 230));
+  --gradient-soft: linear-gradient(180deg, oklch(0.97 0.012 225), oklch(0.9 0.03 220));
+  --shadow-soft: 0 20px 60px -20px oklch(0.4 0.08 230 / 0.25);
+  --shadow-glow: 0 0 60px oklch(0.65 0.1 200 / 0.35);
+  --font-script: "Allura", cursive;
+  --font-display: "Cinzel", serif;
+  --font-body: "Cormorant Garamond", serif;
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.984 0.003 247.858);
+  --card: oklch(0.208 0.042 265.755);
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.929 0.013 255.508);
+  --primary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.551 0.027 264.364);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    font-feature-settings: "liga", "kern";
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: 0.04em;
+  }
+
+  .font-script { font-family: var(--font-script); }
+  .font-display { font-family: var(--font-display); letter-spacing: 0.12em; }
+  .font-body { font-family: var(--font-body); }
+
+  .text-deep { color: var(--deep); }
+  .bg-powder { background-color: var(--powder); }
+  .bg-deep { background-color: var(--deep); }
+
+  .bg-gradient-butterfly { background-image: var(--gradient-butterfly); }
+  .bg-gradient-soft { background-image: var(--gradient-soft); }
+  .text-gradient-butterfly {
+    background-image: var(--gradient-butterfly);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+
+  @keyframes flutter {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-12px) rotate(-3deg); }
+    50% { transform: translateY(-4px) rotate(2deg); }
+    75% { transform: translateY(-16px) rotate(-1deg); }
+  }
+  @keyframes drift {
+    0% { transform: translate(0,0) rotate(0); opacity: 0; }
+    10% { opacity: 0.7; }
+    100% { transform: translate(var(--dx,200px), var(--dy,-300px)) rotate(20deg); opacity: 0; }
+  }
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-flutter { animation: flutter 6s ease-in-out infinite; }
+  .animate-rise { animation: rise 0.9s ease-out both; }
+}
+
+
+
+@theme {
+  /* 1. Define your Custom Cursor */
+  --cursor-butterfly: url("../../assets/butterfly.png"), pointer;}
