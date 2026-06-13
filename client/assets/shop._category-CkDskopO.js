@@ -1,0 +1,1 @@
+import{j as r}from"./index-DUMFuhAf.js";const o=({reset:e})=>r.jsx("div",{className:"min-h-screen grid place-items-center bg-background",children:r.jsx("button",{onClick:e,className:"underline",children:"Try again"})});export{o as errorComponent};
