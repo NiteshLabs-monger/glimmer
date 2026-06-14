@@ -1,5 +1,6 @@
 import logo from "@/assets/butterfly-logo.png";
 import { Link } from "@tanstack/react-router";
+import wordmark from "@/assets/wordmark.png";
 
 export function Footer() {
   return (
@@ -7,8 +8,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-20 grid gap-12 md:grid-cols-4">
         <div>
           <img src={logo} alt="" className="h-12 w-auto mb-4" />
-          <p className="font-script text-3xl text-deep">blue butterflies</p>
-          <p className="text-sm text-muted-foreground mt-2 italic">Wear your transformation.</p>
+          <img src={wordmark} alt="" className="h-12 w-auto mb-4" />
         </div>
         <div>
           <h4 className="text-xs font-display uppercase tracking-[0.25em] text-deep mb-4">Shop</h4>

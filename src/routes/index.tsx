@@ -119,7 +119,7 @@ function Index() {
             <div className="mt-10 grid grid-cols-3 gap-6 border-t border-border pt-8">
               {[
                 { k: "12y", v: "of slow craft" },
-                { k: "100%", v: "recycled silver" },
+                { k: "100%", v: "recycled material" },
                 { k: "1 of 1", v: "feeling, every time" },
               ].map((s) => (
                 <div key={s.k}>

@@ -21,7 +21,7 @@ export function ProductCard({ product }: { product: Product }) {
       </div>
       <div className="mt-4 flex items-baseline justify-between">
         <h3 className="text-base text-deep">{product.name}</h3>
-        <span className="text-sm text-muted-foreground">${product.price}</span>
+        <span className="text-sm text-muted-foreground">{"\u20B9"}{product.price}</span>
       </div>
     </article>
   );
